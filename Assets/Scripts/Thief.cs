@@ -3,7 +3,4 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class Thief : MonoBehaviour
-{
-
-}
+public class Thief : MonoBehaviour { }

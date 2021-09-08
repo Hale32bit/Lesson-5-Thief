@@ -57,12 +57,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Door.cs" />
+    <Compile Include="Assets\Scripts\Signaling.cs" />
     <Compile Include="Assets\Scripts\Thief.cs" />
     <Compile Include="Assets\Scripts\DoorSensor.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
-    <Compile Include="Assets\Scripts\Signaling.cs" />
     <Compile Include="Assets\Scripts\ISensor.cs" />
-    <Compile Include="Assets\Scripts\Initializator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

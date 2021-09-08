@@ -3,15 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [DisallowMultipleComponent]
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource),typeof(ISensor))]
 public class Signaling : MonoBehaviour
 {
-
     private ISensor _sensor;
     private AudioSource _audioSource;
-
 
     private float _targetVolume;
 
@@ -19,12 +16,11 @@ public class Signaling : MonoBehaviour
     private const float _offVolumeLevel = 0f;
     private const float _speedOfVolumeChanges = 0.3f;
 
-    public void Initialize(ISensor sensor)
+    public void Start()
     {
-
         _audioSource = GetComponent<AudioSource>();
         _audioSource.volume = _offVolumeLevel;
-        _sensor = sensor;
+        _sensor = GetComponent<ISensor>();
         _sensor.TriggeredUp += OnSomebodyEnter;
         _sensor.TriggeredDown += OnSomebodyExit;
         this.enabled = false;
@@ -60,8 +56,7 @@ public class Signaling : MonoBehaviour
     }
 
     private void Update()
-    {
-       
+    {       
         _audioSource.volume = Mathf.MoveTowards(_audioSource.volume, _targetVolume, Time.deltaTime * _speedOfVolumeChanges);
 
         if (_audioSource.volume == _targetVolume)
